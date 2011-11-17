@@ -1,4 +1,4 @@
-class NumericInput < SimpleForm::Inputs::TextInput
+class NumericInput < SimpleForm::Inputs::NumericInput
   def input
     "<div class='input'>#{super}</div>".html_safe
   end
