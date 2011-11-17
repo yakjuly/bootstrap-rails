@@ -3,6 +3,8 @@ require "bootstrap-rails/breadcrumb"
 require "bootstrap-rails/form_inputs/string_input"
 require "bootstrap-rails/form_inputs/text_input"
 require "bootstrap-rails/form_inputs/collection_input"
+require "bootstrap-rails/form_inputs/numeric_input"
+require "bootstrap-rails/form_inputs/file_input"
 module Bootstrap
   module Rails
     class Engine < ::Rails::Engine
