@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "bootstrap-rails"
   gem.require_paths = ["lib"]
-  gem.version       = Bootstrap::Rails::VERSION
+  gem.version       = 0.1.4
 
   gem.add_dependency "railties", "~> 3.0"
   gem.add_dependency "thor",     "~> 0.14"
