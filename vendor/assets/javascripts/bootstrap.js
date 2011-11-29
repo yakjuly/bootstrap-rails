@@ -6,3 +6,4 @@
 //= require bootstrap-scrollspy.js
 //= require bootstrap-twipsy.js
 //= require bootstrap-popover.js
+//= require bootstrap-nestform.js
