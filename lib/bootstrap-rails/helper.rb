@@ -2,7 +2,7 @@
 module Bootstrap
   
   class CustomFormBuilder < SimpleForm::FormBuilder
-    include NestedBuilder
+    include ::Bootstrap::NestedBuilder
     
     def input(attribute_name, options = {}, &block)
        "<div class='clearfix'>#{super}</div>".html_safe

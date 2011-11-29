@@ -1,3 +1,4 @@
+require "bootstrap-rails/nested_builder"
 require "bootstrap-rails/helper"
 require "bootstrap-rails/breadcrumb"
 require "bootstrap-rails/form_inputs/string_input"
