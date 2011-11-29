@@ -2,6 +2,8 @@
 module Bootstrap
   
   class CustomFormBuilder < SimpleForm::FormBuilder
+    include NestedBuilder
+    
     def input(attribute_name, options = {}, &block)
        "<div class='clearfix'>#{super}</div>".html_safe
     end
@@ -23,10 +25,30 @@ module Bootstrap
 
     def bootstrap_form_for(object, *args, &block)
       options = args.extract_options!
-      simple_form_for(object, *(args << options.merge(:builder => Bootstrap::CustomFormBuilder)), &block)
+      simple_form_for(object, *(args << options.merge(:builder => Bootstrap::CustomFormBuilder)), &block) << after_nested_form_callbacks
     end
-
-
+    
+    ############ nested form ##########
+    
+    def after_nested_form(association, &block)
+      @associations ||= []
+      @after_nested_form_callbacks ||= []
+      unless @associations.include?(association)
+        @associations << association
+        @after_nested_form_callbacks << block
+      end
+    end
+    
+    def after_nested_form_callbacks
+      @after_nested_form_callbacks ||= []
+      fields = @after_nested_form_callbacks.map do |callback|
+        callback.call
+      end
+      fields.join(" ").html_safe
+    end
+    
+    ############# nested form #########
+    
     def render_page_title
       title = @page_title ? "#{SITE_NAME} | #{@page_title}" : SITE_NAME rescue "SITE_NAME"
       content_tag("title", title, nil, false)
